@@ -1,9 +1,23 @@
 {% extends 'base.html'%}
 
 {% block content %}
+<style type="text/css">
+    .my-grid{
+        border: 1px solid black;
+    }
+    .my-grid-item{
+        border: 1px solid black;
+    }
 
-<div>
-    HOME
+</style>
+<div class="container">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <div class="my-grid d-flex flex-row">
+    <p class="my-grid-item m-auto">Item <span class="material-symbols-outlined">accessibility_new</span></p>
+    <p class="my-grid-item m-auto">Item</p>
+    <p class="my-grid-item m-auto">Item</p>
+    <p class="my-grid-item m-auto">Item</p>
+    </div>
 </div>
 
 {% endblock content %}

@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{%load static%}
 <!DOCTYPE html>
 <html lang=en>
     <head>
@@ -6,12 +8,14 @@
         <title>
             Chat
         </title>
-        <link rel="stylesheet" href="static/base_css.css"/>
-        <script src="base_js.js"></script>
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css'%}"/>
+        
     </head>
     <body>
     <!-- header -->
     {% include 'static/header.html' %}
+    {% include 'static/base_js.html' %}
+    {% include 'static/base_css.html' %}
         <!-- body -->
         <div class="main">
             {% block content %}
@@ -19,5 +23,7 @@
         </div>
         <!-- footer -->
     {% include 'static/footer.html' %}
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
     </body>
 </html>
