@@ -18,10 +18,12 @@ from django.urls import path
 from features.views import home
 from django.conf import settings
 from django.conf.urls.static import static
+from account.views import register_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name="home")
+    path('', home, name="home"),
+    path('register/', register_view, name="register"),
 ]
 
 if settings.DEBUG:

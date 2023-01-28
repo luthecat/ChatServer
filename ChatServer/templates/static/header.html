@@ -41,8 +41,8 @@
                     </div>
                     <!-- Account -->
                     <div class="btn-group dropleft">
-                        <img class="account-image rounded-circle m-auto d-block dropdown-toggle" id="id_profile_links" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" src="{% static 'chat_images/user.jpg'%}" alt="user logo" width="40" height="40"></ima>
+                        <img class="account-image rounded-circle m-auto d-block dropdown-toggle" id="id_profile_links" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                         src="{{request.user.profile_image.url}}" alt="user logo" width="40" height="40">
                         <div class="dropdown-menu" aria-labelledby="id_profile_links">
                             <a class="dropdown-item" href="#">Account</a>
                             <a class="dropdown-item" href="#">Logout</a>
@@ -52,11 +52,48 @@
                     </div>
                 {% else %}
                 <a class="p-2 text-dark" href="#">Login</a>
-                <a class="btn btn-outline-primary" href="#">Register</a>
+                <a class="btn btn-outline-primary" href="{%url 'register'%}">Register</a>
                 {% endif %}
 
             </nav>
         </div>
+        </div>
+        <!-- End Medium screen -->
+
+        <!-- Small screen -->
+        <div class="d-flex d-md-none flex-column my-auto align-items-center">
+            <!-- Row 1 -->
+            <h5 class="font-weight-normal">
+                <a class="p-2 text-dark" href="{% url 'home' %}">Home</a>
+            </h5>
+            <!-- Row 2 -->
+            <form class="search-bar justify-content-start ">
+                <input type="text" class="form-control" name="q" id="id_q_small" placeholder="Search...">
+            </form>
+            <!-- Row 3 -->
+            <div class="d-flex flex-row-reverse flex-grow-1">
+                <nav>
+                    {% if request.user.is_authenticated %}
+                    <div class="dropdown dropleft p-2 mt-2">
+                        <div class="d-flex flex-row">
+                        <!-- Account -->
+                        <div class="btn-group dropleft">
+                            <img class="account-image rounded-circle m-auto d-block dropdown-toggle" id="id_profile_links" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
+                            src="{{request.user.profile_image.url}}" alt="user logo" width="40" height="40">
+                            <div class="dropdown-menu" aria-labelledby="id_profile_links">
+                                <a class="dropdown-item" href="#">Account</a>
+                                <a class="dropdown-item" href="#">Logout</a>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    {% else %}
+                    <a class="p-2 text-dark" href="#">Login</a>
+                    <a class="btn btn-outline-primary m-2" href="{%url 'register'%}">Register</a>
+                    {% endif %}
+    
+                </nav>                
+            </div>
         </div>
     </div>
 </div>
