@@ -101,3 +101,18 @@ def account_view(request, *args, **kwargs):
     return render(request,"account/account.html", context)
 
 
+def account_search_view(request, *args, **kwargs):
+    context = {}
+
+    if request.method == 'GET':
+        search_query = request.GET.get("q")
+        print("Soy search_query", search_query)
+        if len(search_query) > 0:
+            search_results = Account.objects.filter(username__icontains=search_query).distinct()            
+            accounts = []
+            for account in search_results:
+                accounts.append((account, False))
+            
+        context['accounts'] = accounts
+    
+    return render(request, 'account/search_results.html',context)
