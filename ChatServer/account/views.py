@@ -41,7 +41,6 @@ def login_view(request, *args, **kwargs):
         return redirect("home")
     
     destination = get_redirect_if_exists(request)
-    print("destination: ", str(destination))
 
     if request.POST:
         form = AccountAuthenticationForm(request.POST)
