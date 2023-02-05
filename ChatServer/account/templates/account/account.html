@@ -43,10 +43,10 @@
 	.card{
 		border-radius: 12px;
 	}
-	.material-icons{
+	.material-symbols-outline{
 		font-size: 30px;
 	}
-	.material-icons:hover{
+	.material-symbols-outline:hover{
 		cursor: pointer;
 	}
 	.confirm-friend-request{
@@ -90,7 +90,7 @@
 
 		  		<!-- If Auth user is viewing their own profile -->
 		  		{% if is_self %}
-		  		<a  class="mt-4 btn btn-primary" href="#">Update</a>
+		  		<a  class="mt-4 btn btn-primary" href="{% url 'account:edit' user_id=id %}">Update</a>
 				<div class="d-flex flex-column mt-4">
 					<a class="m-auto" href="{% url 'password_change' %}">Change password</a>
 				</div>
@@ -107,8 +107,8 @@
 			<div class="card m-2 p-4">
 				<div class="d-flex flex-row align-items-center">
 					<span class="friend-text align-items-center mr-2">Accept Friend Request</span>
-					<span id="id_cancel_{{id}}" class="decline-friend-request material-icons p-1" onclick='triggerDeclineFriendRequest("{{pending_friend_request_id}}")'>cancel</span>
-  					<span id="id_confirm_{{id}}" class="confirm-friend-request material-icons p-1" onclick='triggerAcceptFriendRequest("{{pending_friend_request_id}}")'>check</span>
+					<span id="id_cancel_{{id}}" class="decline-friend-request material-symbols-outline p-1" onclick='triggerDeclineFriendRequest("{{pending_friend_request_id}}")'>cancel</span>
+  					<span id="id_confirm_{{id}}" class="confirm-friend-request material-symbols-outline p-1" onclick='triggerAcceptFriendRequest("{{pending_friend_request_id}}")'>check</span>
 				</div>
 			</div>
 			{% endif %}
